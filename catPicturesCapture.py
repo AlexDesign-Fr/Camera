@@ -1,6 +1,13 @@
-# OpenCV program to detect cat face in real time 
-# import libraries of python OpenCV 
-# where its functionality resides 
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
+
+'''
+OpenCV program to detect cat face in real time.
+When a cat is detected, we save it's face in a file. The file is named with the current date to be unique.
+
+These images will be used by machine-learning to distinguish Cat1 from Cat2
+'''
+
 import cv2
 from datetime import datetime
 
@@ -13,18 +20,20 @@ from datetime import datetime
 # images. 
 detector = cv2.CascadeClassifier('./classifier/haarcascade_frontalcatface_extended.xml')
 
-# capture frames from a camera 
+# capture frames from a camera
+# Raspi Cam is 0
 videoCapture = cv2.VideoCapture(0)
 
 # Check if video can be opened
 if not videoCapture.isOpened():
     raise Exception("Could not open video device")
 
-# Set properties. Each returns === True on success (i.e. correct resolution)
+# Set the video size
 videoCapture.set(cv2.CAP_PROP_FRAME_WIDTH, 1024)
 videoCapture.set(cv2.CAP_PROP_FRAME_HEIGHT, 768)
 
 # loop runs if capturing has been initialized.
+# We loop until "Esc" Key is pressed
 while 1:
 
     # reads frames from the Raspi camera
