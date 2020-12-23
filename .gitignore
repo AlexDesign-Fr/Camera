@@ -1,4 +1,4 @@
 
-.idea/sshConfigs.xml
-.idea/vcs.xml
+.idea/
 opencv/
+venv/
